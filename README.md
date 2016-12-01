@@ -8,5 +8,6 @@ The purpose of this simple _To Do List_ application is to demonstrate a wide var
 * Git
 * LAMP
 * Slim Framework
+* Composer
 
 ## Thank you for taking a look!
