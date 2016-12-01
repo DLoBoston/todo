@@ -7,7 +7,7 @@ The purpose of this simple _To Do List_ application is to demonstrate a wide var
 * Vagrant / Virtualbox Virtualization
 * Git
 * LAMP
-* Slim Framework
 * Composer
+* Slim Framework
 
 ## Thank you for taking a look!
