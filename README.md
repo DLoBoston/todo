@@ -9,5 +9,7 @@ The purpose of this simple _To Do List_ application is to demonstrate a wide var
 * LAMP
 * Composer
 * Slim Framework
+* MySQL and RDB design
+* Eloquent ORM
 
 ## Thank you for taking a look!
