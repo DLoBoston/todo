@@ -5,6 +5,4 @@
  * @author Digital D.Lo <WebDevDLo@gmail.com>
  */
 
-$app->get('/', function ($request, $response, $args) {
-    return $response->write("Hello D.Lo");
-});
+$app->get('/', '\ToDo\Controllers\MainSiteController:showHome');
