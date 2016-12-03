@@ -5,4 +5,6 @@
  * @author Digital D.Lo <WebDevDLo@gmail.com>
  */
 
+$app->get('/login', '\ToDo\Controllers\SiteController:showLogin');
+
 $app->get('/', '\ToDo\Controllers\SiteController:showHome');
