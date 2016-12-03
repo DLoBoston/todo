@@ -5,4 +5,4 @@
  * @author Digital D.Lo <WebDevDLo@gmail.com>
  */
 
-$app->get('/', '\ToDo\Controllers\MainSiteController:showHome');
+$app->get('/', '\ToDo\Controllers\SiteController:showHome');

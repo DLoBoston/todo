@@ -6,11 +6,11 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 /**
- * Description of MainSiteController
+ * Description of SiteController
  *
  * @author Digital D.Lo <WebDevDLo@gmail.com>
  */
-class MainSiteController extends Controller {
+class SiteController extends Controller {
 	
 	/**
 	 * The home of the site.
