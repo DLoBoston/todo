@@ -1,11 +1,13 @@
 <?php
 /**
- * Set the routes the app responds to
+ * Set the routes the app responds to.
+ * 
  * @link http://www.slimframework.com/docs/objects/router.html
  * @author Digital D.Lo <WebDevDLo@gmail.com>
  */
 
 $app->get('/login', '\ToDo\Controllers\SiteController:showLogin');
+$app->post('/login', '\ToDo\Controllers\SiteController:processLogin');
 
 $app->get('/', '\ToDo\Controllers\SiteController:showHome');
 
