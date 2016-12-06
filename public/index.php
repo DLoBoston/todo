@@ -1,5 +1,8 @@
 <?php
 
+// Set functions
+require '../src/functions.php';
+
 // Autoloaders
 require '../vendor/autoload.php';
 spl_autoload_register(function ($classname) {
