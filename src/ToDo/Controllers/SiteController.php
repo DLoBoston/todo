@@ -95,4 +95,14 @@ class SiteController extends Controller {
     $_SESSION['user_id'] = $user_id;
   }
   
+  /**
+   * Process logout by unsetting user_id from SESSION. Redirect back home.
+   */
+  public function processLogout()
+  {
+    session_start();
+    unset($_SESSION['user_id']);
+    redirect_to('/');
+  }
+  
 }

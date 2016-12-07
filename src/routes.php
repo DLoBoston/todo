@@ -8,6 +8,7 @@
 
 $app->get('/login', '\ToDo\Controllers\SiteController:showLogin');
 $app->post('/login', '\ToDo\Controllers\SiteController:processLogin');
+$app->get('/logout', '\ToDo\Controllers\SiteController:processLogout');
 
 // Routes that require logged in users
 $app->group('/', function () {
