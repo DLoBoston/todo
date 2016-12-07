@@ -12,5 +12,7 @@ The purpose of this simple _To Do List_ application is to demonstrate a wide var
 * URL Routing
 * MySQL and RDB design
 * Eloquent ORM
+* Session handling
+* Middleware
 
 ## Thank you for taking a look!
