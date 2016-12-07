@@ -9,14 +9,19 @@
 $app->get('/login', '\ToDo\Controllers\SiteController:showLogin');
 $app->post('/login', '\ToDo\Controllers\SiteController:processLogin');
 
-$app->get('/', '\ToDo\Controllers\SiteController:showHome');
+// Routes that require logged in users
+$app->group('/', function () {
+  
+  $this->get('', '\ToDo\Controllers\SiteController:showHome');
 
-$app->get('/lists/form', '\ToDo\Controllers\ListsController:showListForm');
-$app->post('/lists', '\ToDo\Controllers\ListsController:addList');
-$app->get('/lists/{id}', '\ToDo\Controllers\ListsController:showList');
-$app->get('/lists/{id}/delete', '\ToDo\Controllers\ListsController:deleteList');
+  $this->get('lists/form', '\ToDo\Controllers\ListsController:showListForm');
+  $this->post('lists', '\ToDo\Controllers\ListsController:addList');
+  $this->get('lists/{id}', '\ToDo\Controllers\ListsController:showList');
+  $this->get('lists/{id}/delete', '\ToDo\Controllers\ListsController:deleteList');
 
-$app->get('/tasks/form', '\ToDo\Controllers\TasksController:showTaskForm');
-$app->post('/tasks', '\ToDo\Controllers\TasksController:addTask');
-$app->get('/tasks/{id}', '\ToDo\Controllers\TasksController:showTask');
-$app->get('/tasks/{id}/delete', '\ToDo\Controllers\TasksController:deleteTask');
+  $this->get('tasks/form', '\ToDo\Controllers\TasksController:showTaskForm');
+  $this->post('tasks', '\ToDo\Controllers\TasksController:addTask');
+  $this->get('tasks/{id}', '\ToDo\Controllers\TasksController:showTask');
+  $this->get('tasks/{id}/delete', '\ToDo\Controllers\TasksController:deleteTask');
+    
+})->add($requireLoggedInUser);
