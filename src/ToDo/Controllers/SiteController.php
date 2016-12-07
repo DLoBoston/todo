@@ -68,10 +68,13 @@ class SiteController extends Controller {
     
     // If valid...
     if ($login_results['valid_submission']) {
+      
       // Set session
       $this->initializeSession($login_results['user_id']);
+      
       // Redirect to home
       redirect_to('/');
+      
     }
     // Else...
     else {
@@ -84,11 +87,10 @@ class SiteController extends Controller {
   /**
    * Initialize session with logged in user's ID.
    * 
-   * @param type $user_id
+   * @param int $user_id
    */
   private function initializeSession($user_id)
   {
-    var_dump($user_id);    exit();
     session_start();
     $_SESSION['user_id'] = $user_id;
   }
