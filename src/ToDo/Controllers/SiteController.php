@@ -69,6 +69,7 @@ class SiteController extends Controller {
     // If valid...
     if ($login_results['valid_submission']) {
       // Set session
+      $this->initializeSession($login_results['user_id']);
       // Redirect to home
       redirect_to('/');
     }
@@ -78,6 +79,18 @@ class SiteController extends Controller {
       $uri = $request->getUri(); // Get URI object for route to be passed to redirect
       redirect_to($uri->getPath());
     }
+  }
+  
+  /**
+   * Initialize session with logged in user's ID.
+   * 
+   * @param type $user_id
+   */
+  private function initializeSession($user_id)
+  {
+    var_dump($user_id);    exit();
+    session_start();
+    $_SESSION['user_id'] = $user_id;
   }
   
 }
