@@ -15,7 +15,7 @@ $settings = require '../src/settings.php';
 // Create app
 $app = new \Slim\App(["settings" => $settings]);
 
-// Start session for every request
+// Middleware: Start session for every request
 $app->add(function ($request, $response, $next) {
   session_start();
 	$response = $next($request, $response);
