@@ -28,32 +28,29 @@ class LoginController extends Controller
       'errors' => array()
     ];
     
-    // Validate email
+    // Validate email is provided
     $valid_email = filter_var($data['email'], FILTER_VALIDATE_EMAIL);
     if (!$valid_email) {
       $results['valid_submission'] = false;
       $results['errors'][] = 'Email is not a valid format.';
     }
     
-    // Validate password
+    // Validate password is provided
     $valid_password = filter_var($data['password'], FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '/^[[:graph:]+]/')));
     if (!$valid_password) {
       $results['valid_submission'] = false;
       $results['errors'][] = 'Please specify a password.';
     }
     
-    // If email and password validate, search for user
+    // If email and password are provided, search for user
     if ($valid_email && $valid_password) {
       
-      // Query matching record in user
+      // Get matching record by user's email
       $this->container->get('orm');
-      $user = \ToDo\Models\User::where([
-        ['email', '=', $data['email']],
-        ['password', '=', $data['password']]
-      ])->first();
+      $user = \ToDo\Models\User::where('email', '=', $data['email'])->first();
       
-      // if found...
-      if ($user) {
+      // if found and passwords match...
+      if (password_verify($data['password'], $user['password'])) {
         // set user id
         $results['user_id'] = $user->id;
       }
