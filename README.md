@@ -14,5 +14,6 @@ The purpose of this simple _To Do List_ application is to demonstrate a wide var
 * Eloquent ORM
 * Session handling
 * Middleware
+* Password hashing
 
 ## Thank you for taking a look!
