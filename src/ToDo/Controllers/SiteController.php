@@ -93,6 +93,7 @@ class SiteController extends Controller {
   {
     session_start();
     $_SESSION['user_id'] = $user_id;
+    $_SESSION['user_id'] = $user_id;
   }
   
 }
