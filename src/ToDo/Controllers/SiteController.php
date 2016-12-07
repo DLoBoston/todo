@@ -91,7 +91,6 @@ class SiteController extends Controller {
    */
   private function initializeSession($user_id)
   {
-    session_start();
     $_SESSION['user_id'] = $user_id;
   }
   
@@ -100,7 +99,6 @@ class SiteController extends Controller {
    */
   public function processLogout()
   {
-    session_start();
     unset($_SESSION['user_id']);
     redirect_to('/');
   }

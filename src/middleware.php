@@ -10,7 +10,6 @@
 $requireLoggedInUser = function (\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, $next) {
   
   // Check for session. Redirect if applicable.
-  session_start();
   if (empty($_SESSION['user_id'])):
     redirect_to('/login');
   endif;
