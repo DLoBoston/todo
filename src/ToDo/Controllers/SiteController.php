@@ -52,7 +52,8 @@ class SiteController extends Controller {
 	}
   
   /**
-   * Process a login attempt. Redirect based on success or failure.
+   * Process a login attempt. On success, set session for user and redirect
+   * home. On failure, set errors in session and redirect back to login.
 	 * 
 	 * @param \Slim\Http\Request $request PSR-7 Request
 	 * @param \Slim\Http\Response $response PSR-7 Response
@@ -69,7 +70,7 @@ class SiteController extends Controller {
     // If valid...
     if ($login_results['valid_submission']) {
       
-      // Set session
+      // Set user_id in session
       $this->initializeSession($login_results['user_id']);
       
       // Redirect to home
@@ -78,6 +79,10 @@ class SiteController extends Controller {
     }
     // Else...
     else {
+      
+      // Set validation errors in session
+      $_SESSION['errors'] = $login_results['errors'];
+      
       // Redirect to login
       $uri = $request->getUri(); // Get URI object for route to be passed to redirect
       redirect_to($uri->getPath());

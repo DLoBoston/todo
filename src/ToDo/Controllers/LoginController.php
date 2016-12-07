@@ -28,6 +28,9 @@ class LoginController extends Controller
       'errors' => array()
     ];
     
+    // Clear previous errors from session
+    unset($_SESSION['errors']);
+    
     // Validate email is provided
     $valid_email = filter_var($data['email'], FILTER_VALIDATE_EMAIL);
     if (!$valid_email) {
@@ -49,14 +52,14 @@ class LoginController extends Controller
       $this->container->get('orm');
       $user = \ToDo\Models\User::where('email', '=', $data['email'])->first();
       
-      // if found and passwords match...
+      // If found and passwords match...
       if (password_verify($data['password'], $user['password'])) {
         // set user id
         $results['user_id'] = $user->id;
       }
-      // else
+      // Else...
       else {
-        // set error
+        // Set error
         $results['valid_submission'] = false;
         $results['errors'][] = 'Email and password combo are incorrect.';
       }
