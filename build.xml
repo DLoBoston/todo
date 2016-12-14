@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="ToDo" default="build-local">
+
+    <!-- Target: Build local environment
+         Assumes that code for local environment was generated from Git clone.
+         Composer update is the only task that needs to be done. -->
+    <target name="build-local">
+      <echo msg="Running composer update..." />
+      <exec executable="composer" dir="." checkreturn="true">
+        <arg line="update" />
+      </exec>
+    </target>
+    
+</project>
