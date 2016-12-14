@@ -8,7 +8,7 @@
     <target name="build-local">
       <echo msg="Running composer update..." />
       <exec executable="composer" dir="." checkreturn="true">
-        <arg line="update" />
+        <arg line="install" />
       </exec>
     </target>
     
